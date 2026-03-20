@@ -1,9 +1,40 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { PayNow } from "@/components/paynow";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { SocialShare } from "@/components/SocialShare";
+import EmailCapture from "@/components/EmailCapture";
+
+const FAQ_ITEMS = [
+  {
+    question: "What is OGForge?",
+    answer: "OGForge is an AI-powered tool that generates beautiful Open Graph images, Twitter cards, LinkedIn banners, and Instagram stories in seconds. No design skills required.",
+  },
+  {
+    question: "What formats are supported?",
+    answer: "OGForge supports OG Image (1200x630), Twitter Card (1200x600), LinkedIn Banner (1584x396), and Instagram Story (1080x1920) — all the dimensions social platforms expect.",
+  },
+  {
+    question: "What does the free plan include?",
+    answer: "The free plan gives you 1 watermarked OG image per day in the standard OG format. Perfect for trying out the tool before committing.",
+  },
+  {
+    question: "What do I get with the $9 Pro card?",
+    answer: "The Pro tier unlocks all 4 output formats, all 5 styles, high-resolution PNG downloads, and removes the watermark. Pay once per card, own it forever.",
+  },
+  {
+    question: "How do I pay?",
+    answer: "We accept credit/debit cards (via Apple Pay, Google Pay, or direct entry) and USDC cryptocurrency on the Base network. All payments are processed securely.",
+  },
+  {
+    question: "Can I use generated cards commercially?",
+    answer: "Yes. Pro cards come with a full commercial license — use them on your website, social media, product launches, or anywhere else you need professional social previews.",
+  },
+];
 
 const PRESET_COLORS = [
   { name: "Violet", hex: "#8b5cf6" },
@@ -550,6 +581,33 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* FAQ */}
+      <section className="mx-auto max-w-4xl px-6 py-24">
+        <FAQAccordion items={FAQ_ITEMS} />
+      </section>
+
+      {/* Email Capture */}
+      <section className="mx-auto max-w-xl px-6 py-20">
+        <EmailCapture
+          heading="OG image tips & trends"
+          description="Weekly tips on social card design that gets clicks."
+          accent="violet"
+        />
+      </section>
+
+      {/* Social Share */}
+      <section className="mx-auto max-w-3xl px-6 py-12 text-center">
+        <p className="text-zinc-400 text-sm mb-4">Share OGForge with your network</p>
+        <div className="flex justify-center">
+          <SocialShare
+            url="https://ogforge.vercel.app"
+            title="OGForge — AI Social Card Generator"
+            description="Generate stunning OG images, Twitter cards, and LinkedIn banners in seconds."
+            hashtags={["OGForge", "OpenGraph", "SocialCards"]}
+          />
+        </div>
+      </section>
+
       {/* Cross-sell Footer */}
       <footer className="border-t border-zinc-800 bg-zinc-900/40">
         <div className="mx-auto max-w-5xl px-6 py-16">
@@ -572,7 +630,19 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <div className="mt-12 text-center text-sm text-zinc-600">
+          <div className="mt-8 flex justify-center gap-6 text-sm text-zinc-500">
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event("open-cookie-banner"))}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Cookie Settings
+            </button>
+            <a href="mailto:hello@ogforge.ai" className="hover:text-white transition-colors">Contact</a>
+          </div>
+          <div className="mt-6 text-center text-sm text-zinc-600">
             OGForge by AI Business Factory
           </div>
         </div>
