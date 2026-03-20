@@ -204,8 +204,7 @@ export default function Home() {
       <section id="preview" className="mx-auto max-w-6xl px-6 py-24">
         <motion.div
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          animate="visible"
           variants={fadeUp}
           custom={0}
           className="text-center mb-16"
@@ -222,8 +221,7 @@ export default function Home() {
           {/* Controls */}
           <motion.div
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             variants={fadeUp}
             custom={1}
             className="space-y-6 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 backdrop-blur-sm h-fit"
@@ -342,8 +340,7 @@ export default function Home() {
           {/* Live Preview Card */}
           <motion.div
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             variants={fadeUp}
             custom={2}
           >
@@ -397,8 +394,7 @@ export default function Home() {
       <section className="mx-auto max-w-5xl px-6 py-24">
         <motion.div
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          animate="visible"
           variants={fadeUp}
           custom={0}
           className="text-center mb-16"
@@ -416,8 +412,7 @@ export default function Home() {
             <motion.div
               key={f.label}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               variants={fadeUp}
               custom={i}
               className="group rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 text-center transition hover:border-violet-500/40 hover:bg-zinc-900"
@@ -441,8 +436,7 @@ export default function Home() {
       <section id="pricing" className="mx-auto max-w-5xl px-6 py-24">
         <motion.div
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          animate="visible"
           variants={fadeUp}
           custom={0}
           className="text-center mb-16"
@@ -460,8 +454,7 @@ export default function Home() {
             <motion.div
               key={plan.name}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               variants={fadeUp}
               custom={i}
               className={`relative rounded-2xl border p-8 transition ${
@@ -537,8 +530,7 @@ export default function Home() {
       <section className="mx-auto max-w-3xl px-6 py-24 text-center">
         <motion.div
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          animate="visible"
           variants={fadeUp}
           custom={0}
         >
