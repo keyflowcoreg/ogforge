@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@/components/Analytics";
+import { CookieBanner } from "@/components/CookieBanner";
 import "./globals.css";
 
 const inter = Inter({
@@ -59,31 +60,24 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased dark`}>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              name: "OGForge",
-              description:
-                "Generate beautiful OG images, Twitter cards, and LinkedIn banners in seconds. AI-powered social card generator.",
-              url: "https://ogforge.ai",
-              applicationCategory: "DesignApplication",
-              operatingSystem: "Web",
-              offers: {
-                "@type": "Offer",
-                price: "9",
-                priceCurrency: "USD",
-                availability: "https://schema.org/InStock",
-              },
-            }),
-          }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "OGForge",
+          "description": "AI OG image generator",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "9",
+            "priceCurrency": "USD"
+          }
+        }) }} />
       </head>
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground">
         <Analytics product="ogforge" />
         {children}
+        <CookieBanner />
       </body>
     </html>
   );
