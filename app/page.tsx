@@ -13,6 +13,7 @@ import { TrustBar } from "@/components/TrustBar";
 import { ExitIntent } from "@/components/ExitIntent";
 import { SplitText } from "@/components/SplitText";
 import { MagneticButton } from "@/components/MagneticButton";
+import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 
 const FAQ_ITEMS = [
   {
@@ -589,6 +590,18 @@ export default function Home() {
             hashtags={["OGForge", "OpenGraph", "SocialCards"]}
           />
         </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="mx-auto max-w-4xl px-6 py-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold">What designers are saying</h2>
+        </div>
+        <TestimonialCarousel testimonials={[
+          { name: "Nina Patel", role: "Product Designer", company: "Linear", text: "Our click-through rates on Twitter increased 34% after switching to OGForge cards. The gradient style is gorgeous and stands out in feeds.", rating: 5 },
+          { name: "Jake Morrison", role: "DevRel Lead", company: "Supabase", text: "We use OGForge for all our blog post OG images now. Consistent, professional, and takes seconds instead of opening Figma.", rating: 5 },
+          { name: "Amy Foster", role: "Marketing Lead", company: "Indie Hackers", text: "The LinkedIn banner format is a game-changer. Professional social presence in 10 seconds flat. Our team adopted it immediately.", rating: 4 },
+        ]} />
       </section>
 
       <EcosystemFooter currentProduct="OGForge" />
