@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { X402Checkout } from "@/components/x402/X402Checkout";
+import { PayNow } from "@/components/paynow";
 
 const PRESET_COLORS = [
   { name: "Violet", hex: "#8b5cf6" },
@@ -499,21 +499,15 @@ export default function Home() {
                 ))}
               </ul>
               {plan.highlighted ? (
-                <X402Checkout
-                  endpoint="/api/generate"
-                  method="POST"
-                  productName="OGForge Premium Card"
-                  price="$9"
-                  description="Clean, high-res social card. No watermark. All 4 formats and 5 styles included."
-                  onSuccess={() => router.push("/success")}
-                  accentColor="#8b5cf6"
-                >
-                  <button
-                    className="mt-8 w-full rounded-xl py-3 text-sm font-semibold transition bg-violet-600 text-white shadow-lg shadow-violet-500/25 hover:bg-violet-500"
-                  >
-                    {plan.cta}
-                  </button>
-                </X402Checkout>
+                <div className="mt-8">
+                  <PayNow
+                    productName="OGForge Premium Card"
+                    price={9}
+                    description="Clean, high-res social card. No watermark. All formats and styles."
+                    onSuccess={() => router.push("/success")}
+                    accentColor="#8b5cf6"
+                  />
+                </div>
               ) : (
                 <button
                   className="mt-8 w-full rounded-xl py-3 text-sm font-semibold transition bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-white"
@@ -541,21 +535,17 @@ export default function Home() {
             Generate a professional social card in seconds. Pay once, own
             forever.
           </p>
-          <X402Checkout
-            endpoint="/api/generate"
-            method="POST"
-            productName="OGForge Premium Card"
-            price="$9"
-            description="Clean, high-res social card. No watermark. All 4 formats and 5 styles included."
-            onSuccess={() => router.push("/success")}
-            accentColor="#8b5cf6"
-          >
-            <button className="mt-8 rounded-xl bg-violet-600 px-10 py-4 text-lg font-bold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-500 hover:shadow-violet-500/40">
-              Generate Your Card — $9
-            </button>
-          </X402Checkout>
+          <div className="mt-8 max-w-sm mx-auto">
+            <PayNow
+              productName="OGForge Premium Card"
+              price={9}
+              description="Clean, high-res social card. No watermark. All formats and styles."
+              onSuccess={() => router.push("/success")}
+              accentColor="#8b5cf6"
+            />
+          </div>
           <p className="mt-3 text-sm text-zinc-500">
-            Paid with USDC on Base via x402 protocol
+            Card, Apple Pay, or USDC on Base accepted
           </p>
         </motion.div>
       </section>
