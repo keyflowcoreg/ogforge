@@ -157,6 +157,41 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.15),transparent)]" />
+        {/* Secondary pink glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_70%_-10%,rgba(217,70,239,0.08),transparent)]" />
+
+        {/* Floating OG card previews */}
+        <div className="pointer-events-none absolute left-[5%] top-[20%] hidden w-56 -rotate-6 rounded-xl border border-violet-500/15 bg-zinc-900/60 shadow-xl shadow-violet-500/10 backdrop-blur-sm overflow-hidden lg:block">
+          <div className="h-1 bg-gradient-to-r from-violet-500 to-fuchsia-500" />
+          <div className="p-3">
+            <div className="mb-2 h-2 w-16 rounded bg-violet-500/20" />
+            <div className="mb-1 h-2.5 w-full rounded bg-zinc-700/50" />
+            <div className="h-2.5 w-3/4 rounded bg-zinc-700/30" />
+            <div className="mt-2 flex items-center gap-1">
+              <div className="h-3 w-3 rounded-full bg-violet-500/30" />
+              <div className="h-1.5 w-12 rounded bg-zinc-700/40" />
+            </div>
+          </div>
+        </div>
+
+        <div className="pointer-events-none absolute right-[6%] top-[28%] hidden w-48 rotate-3 rounded-xl border border-fuchsia-500/15 bg-zinc-900/50 shadow-lg shadow-fuchsia-500/10 backdrop-blur-sm overflow-hidden lg:block">
+          <div className="h-1 bg-gradient-to-r from-fuchsia-500 to-rose-500" />
+          <div className="p-3">
+            <div className="mb-2 h-2 w-20 rounded bg-fuchsia-500/20" />
+            <div className="mb-1 h-2.5 w-full rounded bg-zinc-700/50" />
+            <div className="h-2.5 w-2/3 rounded bg-zinc-700/30" />
+          </div>
+        </div>
+
+        <div className="pointer-events-none absolute right-[12%] bottom-[15%] hidden w-44 rotate-6 rounded-xl border border-violet-500/10 bg-zinc-900/40 shadow-lg backdrop-blur-sm overflow-hidden lg:block">
+          <div className="h-1 bg-gradient-to-r from-violet-400 to-violet-600" />
+          <div className="p-2.5">
+            <div className="mb-1.5 h-2 w-14 rounded bg-violet-500/15" />
+            <div className="mb-1 h-2 w-full rounded bg-zinc-700/40" />
+            <div className="h-2 w-1/2 rounded bg-zinc-700/25" />
+          </div>
+        </div>
+
         <div className="relative mx-auto max-w-5xl px-6 pt-32 pb-20 text-center">
           <motion.div
             initial="hidden"
@@ -164,7 +199,7 @@ export default function Home() {
             variants={fadeUp}
             custom={0}
           >
-            <span className="inline-block rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-sm font-medium text-violet-400 mb-6">
+            <span className="inline-block rounded-full border border-fuchsia-500/30 bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 px-4 py-1.5 text-sm font-medium text-fuchsia-300 mb-6">
               AI-Powered Social Cards
             </span>
           </motion.div>
@@ -430,7 +465,7 @@ export default function Home() {
               animate="visible"
               variants={fadeUp}
               custom={i}
-              className="group rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 text-center transition hover:border-violet-500/40 hover:bg-zinc-900"
+              className="group rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 text-center transition hover:border-fuchsia-500/30 hover:bg-zinc-900 hover:shadow-lg hover:shadow-fuchsia-500/5"
             >
               <div
                 className="mx-auto mb-4 rounded-lg border border-zinc-700 bg-zinc-800 transition group-hover:border-violet-500/30"
