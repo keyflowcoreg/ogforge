@@ -9,6 +9,10 @@ import { FAQAccordion } from "@/components/FAQAccordion";
 import { SocialShare } from "@/components/SocialShare";
 import EmailCapture from "@/components/EmailCapture";
 import { EcosystemFooter } from "@/components/EcosystemFooter";
+import { TrustBar } from "@/components/TrustBar";
+import { ExitIntent } from "@/components/ExitIntent";
+import { SplitText } from "@/components/SplitText";
+import { MagneticButton } from "@/components/MagneticButton";
 
 const FAQ_ITEMS = [
   {
@@ -163,19 +167,10 @@ export default function Home() {
               AI-Powered Social Cards
             </span>
           </motion.div>
-          <motion.h1
-            className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05]"
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            custom={1}
-          >
-            Your links look boring.
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">
-              Fix that in 10 seconds.
-            </span>
-          </motion.h1>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05]">
+            <SplitText text="Your links look boring." className="justify-center" delay={0.1} />
+            <SplitText text="Fix that in 10 seconds." className="justify-center text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400" delay={0.4} />
+          </h1>
           <motion.p
             className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400 leading-relaxed"
             initial="hidden"
@@ -193,12 +188,12 @@ export default function Home() {
             variants={fadeUp}
             custom={3}
           >
-            <a
-              href="#preview"
-              className="rounded-xl bg-violet-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-500 hover:shadow-violet-500/40"
+            <MagneticButton
+              onClick={() => document.getElementById('preview')?.scrollIntoView({ behavior: 'smooth' })}
+              className="rounded-xl bg-violet-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-500 hover:shadow-violet-500/40 cursor-pointer"
             >
               Try the Editor
-            </a>
+            </MagneticButton>
             <a
               href="#pricing"
               className="rounded-xl border border-zinc-700 px-8 py-3.5 text-base font-semibold text-zinc-300 transition hover:border-zinc-500 hover:text-white"
@@ -208,6 +203,16 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* TrustBar */}
+      <div className="mx-auto max-w-6xl px-6">
+        <TrustBar items={[
+          { label: 'Cards Generated', value: 5000, suffix: '+' },
+          { label: 'Formats', value: 4 },
+          { label: 'Styles', value: 5 },
+          { label: 'Resolution', value: 4, suffix: 'K' },
+        ]} />
+      </div>
 
       {/* Live Preview Editor */}
       <section id="preview" className="mx-auto max-w-6xl px-6 py-24">
@@ -587,6 +592,12 @@ export default function Home() {
       </section>
 
       <EcosystemFooter currentProduct="OGForge" />
+
+      <ExitIntent
+        heading="First OG image free — no watermark"
+        description="See the quality before you pay."
+        ctaText="Generate free card"
+      />
     </div>
   );
 }
