@@ -8,6 +8,7 @@ import { PayNow } from "@/components/paynow";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { SocialShare } from "@/components/SocialShare";
 import EmailCapture from "@/components/EmailCapture";
+import { EcosystemFooter } from "@/components/EcosystemFooter";
 
 const FAQ_ITEMS = [
   {
@@ -93,29 +94,6 @@ const PRICING = [
     ],
     cta: "Get API Pack",
     highlighted: false,
-  },
-];
-
-const CROSS_SELL = [
-  {
-    name: "PageForge",
-    desc: "AI landing pages in 60 seconds",
-    href: "https://pageforge.ai",
-  },
-  {
-    name: "RulesForge",
-    desc: "AI cursor rules for any framework",
-    href: "https://rulesforge.ai",
-  },
-  {
-    name: "SiteForge",
-    desc: "Full website generation with AI",
-    href: "https://siteforge.ai",
-  },
-  {
-    name: "CryptoPayKit",
-    desc: "Accept crypto payments in minutes",
-    href: "https://cryptopaykit.com",
   },
 ];
 
@@ -608,45 +586,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Cross-sell Footer */}
-      <footer className="border-t border-zinc-800 bg-zinc-900/40">
-        <div className="mx-auto max-w-5xl px-6 py-16">
-          <p className="text-center text-sm font-medium uppercase tracking-widest text-zinc-500 mb-8">
-            More from AI Business Factory
-          </p>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {CROSS_SELL.map((product) => (
-              <a
-                key={product.name}
-                href={product.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group rounded-xl border border-zinc-800 bg-zinc-900/60 p-5 transition hover:border-violet-500/30 hover:bg-zinc-800/80"
-              >
-                <p className="font-semibold text-white group-hover:text-violet-400 transition">
-                  {product.name}
-                </p>
-                <p className="mt-1 text-sm text-zinc-500">{product.desc}</p>
-              </a>
-            ))}
-          </div>
-          <div className="mt-8 flex justify-center gap-6 text-sm text-zinc-500">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
-            <button
-              type="button"
-              onClick={() => window.dispatchEvent(new Event("open-cookie-banner"))}
-              className="hover:text-white transition-colors cursor-pointer"
-            >
-              Cookie Settings
-            </button>
-            <a href="mailto:hello@ogforge.ai" className="hover:text-white transition-colors">Contact</a>
-          </div>
-          <div className="mt-6 text-center text-sm text-zinc-600">
-            OGForge by AI Business Factory
-          </div>
-        </div>
-      </footer>
+      <EcosystemFooter currentProduct="OGForge" />
     </div>
   );
 }
