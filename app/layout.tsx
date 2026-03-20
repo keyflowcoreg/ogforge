@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@/components/Analytics";
 import { CookieBanner } from "@/components/CookieBanner";
+import { NoiseOverlay } from "@/components/NoiseOverlay";
+import { AnnouncementBar } from "@/components/AnnouncementBar";
 import "./globals.css";
 
 const inter = Inter({
@@ -75,6 +77,8 @@ export default function RootLayout({
         }) }} />
       </head>
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground">
+        <NoiseOverlay />
+        <AnnouncementBar items={['LAUNCH WEEK \u2014 Limited time pricing', 'Professional OG images in seconds \u2014 From $9']} />
         <Analytics product="ogforge" />
         {children}
         <CookieBanner />
